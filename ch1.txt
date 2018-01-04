@@ -3,3 +3,9 @@ Is it true that this is an atom?
 
 Yes, because it is a string.
 ________________________________________________________________________________
+
+Is it true that this is an atom?
+    turkey
+
+Yes, because it is a string.
+________________________________________________________________________________
