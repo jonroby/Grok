@@ -42,3 +42,62 @@ Is it true that this is a list?
 
 Yes, because it is several atoms enclosed by parens.
 ________________________________________________________________________________
+
+Is it true that this is a list
+    (atom turkey) or
+
+No, because it is a list followed by an atom. More specifically, two
+S-expressions not enclosed by parens.
+________________________________________________________________________________
+
+Is it true that this is list?
+    ((atom turkey) or)
+
+Yes, because both S-expressions are enclosed by parens.
+________________________________________________________________________________
+
+Is true that this is an S-expression?
+    xyz
+
+Yes, because atoms are S-expressions.
+________________________________________________________________________________
+
+Is true that this is an S-expression?
+    (x y z)
+
+Yes, because it is a list.
+________________________________________________________________________________
+
+Is true that this is an S-expression.
+    ((x y) z)
+
+Yes, because it is a list containing a list (of two atoms) and an atom.
+________________________________________________________________________________
+
+Is it true that this is a list?
+    (how are you doing so far)
+
+Yes, because it is a list of atoms enclosed by parens and all are atoms are
+S-expressions.
+________________________________________________________________________________
+
+How many S-expressions are in the list
+    (how are you doing so far)
+and what are they?
+
+Six: how, are, you, doing, so, far.
+________________________________________________________________________________
+
+Is it true that this is a list?
+    (((how) are) ((you) (doing so)) far)
+
+Yes, because unraveling all parens reveals that it is atoms enclosed by parens
+that properly match.
+________________________________________________________________________________
+
+How many S-expressions are in the list
+    (((how) are) ((you) (doing so)) far)
+and what are they?
+
+Three: ((how) are), ((you) (doing so)) far
+________________________________________________________________________________
