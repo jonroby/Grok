@@ -101,3 +101,8 @@ and what are they?
 
 Three: ((how) are), ((you) (doing so)) far
 ________________________________________________________________________________
+
+Is it true that this is a list?
+    ()
+
+Yes, it is the empty list.
