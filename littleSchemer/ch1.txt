@@ -106,3 +106,34 @@ Is it true that this is a list?
     ()
 
 Yes, it is the empty list.
+________________________________________________________________________________
+
+Is it true that this is an atom?
+    ()
+
+No, because () is just a list.
+________________________________________________________________________________
+
+Is it true that this is a list?
+    (() () () ())
+
+Yes, because it is several S-expressions enclosed by parens.
+________________________________________________________________________________
+
+What is the car of l where
+    ((a b c) x y z)
+
+(a b c).
+________________________________________________________________________________
+
+What is the car of l where l is
+    hotdog
+
+None. car can't be applied to an atom.
+________________________________________________________________________________
+
+What is the car of l where l is
+    ()
+
+None. car can't be applied to an empty list.
+________________________________________________________________________________
