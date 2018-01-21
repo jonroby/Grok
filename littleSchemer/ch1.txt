@@ -137,3 +137,52 @@ What is the car of l where l is
 
 None. car can't be applied to an empty list.
 ________________________________________________________________________________
+
+What is the car of l where l is
+    (((hotdogs)) (and) (pickle) relish)
+
+((hotdogs)).
+________________________________________________________________________________
+
+What is (car l) where l is
+    (((hotdogs)) (and) (pickle) relish)
+
+((hotdogs)).
+________________________________________________________________________________
+
+What is (car (car l)) where l is
+    (((hotdogs)) (and))
+
+(hotdogs).
+________________________________________________________________________________
+
+What is the cdr of l where l is
+    (a b c)
+
+(b c), because cdr is the tail.
+________________________________________________________________________________
+
+What is the cdr of l where l is
+    ((a b c) x y z)
+
+(x y z).
+________________________________________________________________________________
+
+What is the cdr of l where l is
+    (hamburger)
+
+().
+
+________________________________________________________________________________
+
+What is (cdr l) where l is
+    ((x) t r)
+
+(t r).
+________________________________________________________________________________
+
+What is (cdr a) where a
+    is hotdogs.
+
+No answer, because hotdogs is an atom and you can't ask the cdr of an atom.
+________________________________________________________________________________
