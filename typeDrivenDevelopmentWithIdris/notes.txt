@@ -1,0 +1,12 @@
+Idris REPL:
+
+$ idris
+
+To run file:
+
+$ idris <file>
+> :exec
+
+To compile:
+idris <file> -o <output>
+$ ./<output>
