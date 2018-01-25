@@ -1,0 +1,3 @@
+- Brief discussion on curry vs partial application.
+- Show particular example of partial application.
+- SHow general algorithm.
