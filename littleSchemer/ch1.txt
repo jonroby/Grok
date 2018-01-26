@@ -186,3 +186,45 @@ What is (cdr a) where a
 
 No answer, because hotdogs is an atom and you can't ask the cdr of an atom.
 ________________________________________________________________________________
+
+What is (cdr l) where l is
+    ()
+
+No answer, because you can't ask the cdr of an empty list.
+________________________________________________________________________________
+
+What is (car (cdr l)) where l is
+    ((b) (x y) ((c)))
+
+(x y).
+________________________________________________________________________________
+
+What is (cdr (cdr l)) where l is
+    ((b) (x y) ((c)))
+
+(((c))).
+________________________________________________________________________________
+
+What is (cdr (car l)) where l is
+    (a (b (c)) d)
+
+No answer, since you can't ask the cdr of an atom (a).
+________________________________________________________________________________
+
+What does car take as an argument?
+
+A non-empty list.
+________________________________________________________________________________
+
+What does cdr take as an argument?
+
+A non-empty list.
+________________________________________________________________________________
+
+What is the cons of the atom a and the list l where
+    a is peanut
+    and
+    l is (butter and jelly)
+
+(peanut butter and jelly).
+________________________________________________________________________________
