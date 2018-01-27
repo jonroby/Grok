@@ -123,7 +123,7 @@ ________________________________________________________________________________
 What is the car of l where
     ((a b c) x y z)
 
-(a b c).
+(a b c)
 ________________________________________________________________________________
 
 What is the car of l where l is
@@ -141,19 +141,19 @@ ________________________________________________________________________________
 What is the car of l where l is
     (((hotdogs)) (and) (pickle) relish)
 
-((hotdogs)).
+((hotdogs))
 ________________________________________________________________________________
 
 What is (car l) where l is
     (((hotdogs)) (and) (pickle) relish)
 
-((hotdogs)).
+((hotdogs))
 ________________________________________________________________________________
 
 What is (car (car l)) where l is
     (((hotdogs)) (and))
 
-(hotdogs).
+(hotdogs)
 ________________________________________________________________________________
 
 What is the cdr of l where l is
@@ -165,20 +165,20 @@ ________________________________________________________________________________
 What is the cdr of l where l is
     ((a b c) x y z)
 
-(x y z).
+(x y z)
 ________________________________________________________________________________
 
 What is the cdr of l where l is
     (hamburger)
 
-().
+()
 
 ________________________________________________________________________________
 
 What is (cdr l) where l is
     ((x) t r)
 
-(t r).
+(t r)
 ________________________________________________________________________________
 
 What is (cdr a) where a
@@ -196,13 +196,13 @@ ________________________________________________________________________________
 What is (car (cdr l)) where l is
     ((b) (x y) ((c)))
 
-(x y).
+(x y)
 ________________________________________________________________________________
 
 What is (cdr (cdr l)) where l is
     ((b) (x y) ((c)))
 
-(((c))).
+(((c)))
 ________________________________________________________________________________
 
 What is (cdr (car l)) where l is
@@ -226,5 +226,59 @@ What is the cons of the atom a and the list l where
     and
     l is (butter and jelly)
 
-(peanut butter and jelly).
+(peanut butter and jelly)
+________________________________________________________________________________
+
+What is the cons of s and l where
+    s is (banana and)
+    and
+    l is (peanut butter and jelly)
+
+((banana and) peanut butter and jelly). The S-expression is added to the front
+of a list.
+________________________________________________________________________________
+
+What is (cons s l) where
+    s is ((help) this)
+    and
+    l is (is very ((hard) to learn))
+
+(((help) this) is very ((hard) to learn))
+________________________________________________________________________________
+
+What does cons take as its arguments?
+
+Any S-expression and a list (can be the null list).
+________________________________________________________________________________
+
+What is (cons s l) where
+    s is (a b (c))
+    and
+    l is ()
+
+((a b (c)))
+________________________________________________________________________________
+
+What is (cons s l) where
+    s is a
+    and
+    l is ()
+
+(a)
+________________________________________________________________________________
+
+What is (cons s l) where
+    s is ((a b c))
+    and
+    l is b
+
+No answer, since the second argument must be a list.
+________________________________________________________________________________
+
+What is (cons s l) where
+    s is a
+    and
+    l is b
+
+No answer, because l is not a list.
 ________________________________________________________________________________
