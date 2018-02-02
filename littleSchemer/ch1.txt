@@ -282,3 +282,37 @@ What is (cons s l) where
 
 No answer, because l is not a list.
 ________________________________________________________________________________
+
+What is (cons s (car l)) where
+    s is a
+    and
+    l is ((b) c d)
+
+(a b)
+________________________________________________________________________________
+
+What is (cons s (cdr l)) where
+    s is a
+    and
+    l is ((b) c d)
+
+(a c d)
+________________________________________________________________________________
+
+Is it true that the list l is the null list where
+    l is ()
+
+Yes, because it is the null list or the list composed of no S-expressions.
+________________________________________________________________________________
+
+What is (null? (quote()))
+
+True, because (quote ()) is a notation for the null list.
+________________________________________________________________________________
+
+Is (null? l) true or false where
+    l is (a b c)
+
+False, because the only list that is null is the null list ().
+
+________________________________________________________________________________
