@@ -1,0 +1,9 @@
+Syntax is just how you write something.
+
+Semantics is what that something means.
+- Type-checking (before program runs)
+- Evaluation (as program runs)
+
+For variable bindings:
+- Type-check expression and extend static environment
+- Evaluate expression and extend dynamic environment
