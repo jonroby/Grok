@@ -314,5 +314,88 @@ Is (null? l) true or false where
     l is (a b c)
 
 False, because the only list that is null is the null list ().
+________________________________________________________________________________
 
+Is (null? a) true or false where
+    a is spaghetti
+
+No answer, because you can't ask null? of an atom.
+________________________________________________________________________________
+
+Is it true or false that s is an atom where s is
+    Harry
+
+True.
+________________________________________________________________________________
+
+Is (atom? s) true or false where
+    s is Harry
+
+True.
+________________________________________________________________________________
+
+Is (atom? s) true or false where
+    s is (Harry had a heap of apples)
+
+False, because s is a list and not an atom.
+________________________________________________________________________________
+
+How many arguments does atom? take and what are they?
+
+One argument and it can be any S-expression.
+________________________________________________________________________________
+
+Is (atom? (car l)) true or false where l is
+    (Harry had a heap of apples)
+
+True, because Harry is an atom.
+________________________________________________________________________________
+
+Is (atom? (cdr l)) true or false where
+    l is (Harry had a heap of apples)
+
+False, because cdr of l is a list (had a heap of apples) and a list is not atom.
+________________________________________________________________________________
+
+Is (atom? (cdr l)) true or false where
+    l is (Harry)
+
+False, because cdr of (Harry) is () and it isn't an atom.
+________________________________________________________________________________
+
+Is (atom? (car (cdr l))) true or false where l is
+    (swing low sweet cherry oat)
+
+True. (cdr l) is a list and and car of that list is low, which is a string of
+characters, or, an atom.
+________________________________________________________________________________
+
+Is (atom? (car (cdr l))) true or false where
+    l is (swing (low sweet) cherry oat)
+
+False, since cdr of l is a list beginning with a list, and so car of that,
+returns the list, which isn't an atom.
+________________________________________________________________________________
+
+True or false: a1 and a2 are the same atom where
+    a1 is Harry and
+    a2 is Harry
+
+True. (eq? a1 a2) is checking whether they're the same non-numeric atom.
+________________________________________________________________________________
+
+Is (eq? a1 a2) true or false where
+    a1 is Harry
+    and
+    a2 is Harry
+
+True, same reasoning as above.
+________________________________________________________________________________
+
+Is (eq? a1 a2) true or false where
+    a1 is margarine
+    and
+    a2 is butter
+
+False, as they are different atom.
 ________________________________________________________________________________
