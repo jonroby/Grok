@@ -1,0 +1,15 @@
+Find a word in a file
+C-s or cmd-f / continue hitting C-s to find next match / C-g to quit
+https://www.emacswiki.org/emacs/IncrementalSearch
+
+Find a file
+C-x C-f
+
+
+Fuzzy search
+C-f fiplr
+
+Atom like cmd-d
+
+To see all previous buffers
+C-x b
