@@ -21,6 +21,15 @@ function curry(fn) {
     return step(len, []);
 }
 
+const curry = fn => {
+    const recurse = args => {
+        if (fn.length === args.length) return fn(...args);
+        return x => recurse(args + [x]);
+    };
+    
+    return recurse([]);
+};
+
 function uncurry(fn) {
     let final = null;
     function step(f, args) {
