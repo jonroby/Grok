@@ -399,3 +399,16 @@ Is (eq? a1 a2) true or false where
 
 False, as they are different atom.
 ________________________________________________________________________________
+
+How many arguments does eq? take and what are they?
+
+Two arguments. Both should be non-numeric atoms.
+________________________________________________________________________________
+
+Is (eq? l1 l2) true or false where
+   l1 is ()
+   and
+   l2 is (strawberry)
+
+No answer, both need to be non-numeric atoms and neither are.
+________________________________________________________________________________
