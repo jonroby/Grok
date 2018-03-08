@@ -412,3 +412,35 @@ Is (eq? l1 l2) true or false where
 
 No answer, both need to be non-numeric atoms and neither are.
 ________________________________________________________________________________
+
+Is (eq? n1 n2) true or false where
+   n1 is 6
+   and
+   n2 is 7
+
+No answer. n1 and n2 are numbers.
+________________________________________________________________________________
+
+Is (eq? (car l) a) true or false where
+   l is (Mary had a little lamb chop)
+   and
+   a is Mary
+
+True, because (car l) is Mary and a is Mary.
+________________________________________________________________________________
+
+Is (eq? (cdr l) a) true or false where
+   l is (soured milk)
+   and
+   a is milk
+
+The cdr of a list is always another list. So since that is the first argument,
+there is no answer.
+________________________________________________________________________________
+
+Is (eq? (car l) (car (cdr l))) true or false where
+   l is (beans beans we need jelly beans)
+
+True, because (car l) is beans and (cdr l) is a list beginning with beans, and
+the car of that, is beans.
+________________________________________________________________________________
