@@ -1,0 +1,32 @@
+________________________________________________________________________________
+
+True or false: (lat? l) where
+     l is (Jack Sprat could eat no chicken fat)
+
+True, because every item in l is an atom.
+
+________________________________________________________________________________
+
+True or false: (lat? l) where l is
+     ((Jack) Sprat could eat no chicken fat)
+
+False, since the first item is not an atom.
+
+________________________________________________________________________________
+
+True or false: (lat? l) where l is
+     (Jack (Sprat could) eat no chicken fat)
+
+False, since the second item is not an atom.
+
+________________________________________________________________________________
+
+True or false: (lat? l) where l is ()
+True because none of its items (none) are not non-atoms.
+________________________________________________________________________________
+
+True or false: a lat is a list of atoms.
+
+True.
+
+________________________________________________________________________________
