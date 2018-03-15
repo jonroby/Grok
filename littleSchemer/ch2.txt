@@ -30,3 +30,20 @@ True or false: a lat is a list of atoms.
 True.
 
 ________________________________________________________________________________
+
+How do we determine the answer #t for the application
+    (lat? l)
+
+If all items in S-expression are atoms, return #t.
+________________________________________________________________________________
+
+What is the first question asked by (lat? l)
+
+The base case: if (null? l).
+________________________________________________________________________________
+
+What is the meaning of the cond-line ((null? l) #t) where
+     l is (bacon and eggs)
+
+Is l the null list? It is not.
+________________________________________________________________________________
