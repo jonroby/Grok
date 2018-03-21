@@ -1,15 +1,49 @@
 Find a word in a file
 C-s or cmd-f / continue hitting C-s to find next match / C-g to quit
-https://www.emacswiki.org/emacs/IncrementalSearch
+C-r to go back
 
 Find a file
 C-x C-f
 
+To go back while finding a file
+C-l
 
 Fuzzy search
-C-f fiplr
+s-t helm-projectile
 
-Atom like cmd-d
+Go to line
+M-g g
+
+Jump to definition
+M-g j
+
+Jump back
+M-g b
+
+Quick look
+M-g q
+
+Switch project
+C-x p helm-projectile-switch-project
 
 To see all previous buffers
 C-x b
+
+Magit
+C-x g magit-status
+C-x m magit-dispatch-popup
+
+Mark next like this
+s-n
+
+Mark previous like this
+s-p
+
+Term
+M-x ansi-term
+
+Additional packages
+doom-themes
+magit
+ag (need to install the_silver_searcher with homebrew)
+
