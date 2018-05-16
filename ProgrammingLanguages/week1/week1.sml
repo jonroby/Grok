@@ -5,10 +5,17 @@ fun is_older (d1: int * int * int, d2: int * int * int) =
     else if (#3 d1) <= (#3 d2) then false
     else true
 
-
-
-
 (* val number_in_month = fn : (int * int * int) list * int -> int *)
+fun number_in_month (dates: (int * int * int) list, month: int) =
+    if null dates
+    then 0
+    else
+        let
+            fun match(d: (int * int * int)) = if (#2 d) = month then 1 else 0
+        in
+            match((hd dates)) + number_in_month((tl dates), month)
+        end
+
 (* val number_in_months = fn : (int * int * int) list * int list -> int *)
 (* val dates_in_month = fn : (int * int * int) list * int -> (int * int * int) list *)
 (* val dates_in_months = fn : (int * int * int) list * int list -> (int * int * int) list *)
