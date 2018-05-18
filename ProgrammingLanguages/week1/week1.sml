@@ -35,9 +35,15 @@ fun dates_in_month (dates: (int * int * int) list, month: int) =
     else
         dates_in_month((tl dates), month)
 
-
 (* val dates_in_months = fn : (int * int * int) list * int list -> (int * int * int) list *)
 (* val get_nth = fn : string list * int -> string *)
+fun get_nth (list: string list, n: int) =
+    if n = 1 then
+        hd list
+    else
+        get_nth((tl list), n-1)
+
+
 (* val date_to_string = fn : int * int * int -> string *)
 (* val number_before_reaching_sum = fn : int * int list -> int *)
 (* val what_month = fn : int -> int *)
