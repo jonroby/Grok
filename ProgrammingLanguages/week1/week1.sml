@@ -36,6 +36,24 @@ fun dates_in_month (dates: (int * int * int) list, month: int) =
         dates_in_month((tl dates), month)
 
 (* val dates_in_months = fn : (int * int * int) list * int list -> (int * int * int) list *)
+fun dates_in_months (dates: (int * int * int) list, months: int list) =
+    if null dates then
+        []
+    else
+        let fun is_in (date: (int * int * int), months: int list) =
+            if null months then
+                false
+            else if (#2 date) = (hd months) then
+                true
+            else
+                is_in (date, (tl months))
+        in
+            if is_in((hd dates), months) then
+                (hd dates) :: dates_in_months((tl dates), months)
+            else
+                dates_in_months((tl dates), months)
+        end
+
 (* val get_nth = fn : string list * int -> string *)
 fun get_nth (list: string list, n: int) =
     if n = 1 then
