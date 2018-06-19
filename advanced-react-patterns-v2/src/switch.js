@@ -7,21 +7,9 @@ import React from 'react'
 // problem is probably in your implementation. Tip: Check
 // your `render` method or the `getTogglerProps` method
 // (if we've gotten to that part)
-
-// this is here to fill in for the onChange handler
-// we're not using onChange because it seems to behave
-// differently in codesandbox and locally :shrug:
-const noop = () => {}
-
 class Switch extends React.Component {
   render() {
-    const {
-      on,
-      className = '',
-      'aria-label': ariaLabel,
-      onClick,
-      ...props
-    } = this.props
+    const {on, className = '', ...props} = this.props
     const btnClassName = [
       className,
       'toggle-btn',
@@ -30,20 +18,21 @@ class Switch extends React.Component {
       .filter(Boolean)
       .join(' ')
     return (
-      <label
-        aria-label={ariaLabel || 'Toggle'}
-        style={{display: 'block'}}
-      >
+      <div>
         <input
           className="toggle-input"
           type="checkbox"
           checked={on}
-          onChange={noop}
-          onClick={onClick}
-          data-testid="toggle-input"
+          onChange={() => {
+            // changing is handled by clicking the button
+          }}
         />
-        <span className={btnClassName} {...props} />
-      </label>
+        <button
+          className={btnClassName}
+          aria-label="Toggle"
+          {...props}
+        />
+      </div>
     )
   }
 }

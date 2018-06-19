@@ -3,7 +3,10 @@
 import React from 'react'
 import {Switch} from '../switch'
 
-const ToggleContext = React.createContext()
+const ToggleContext = React.createContext({
+  on: false,
+  toggle: () => {},
+})
 
 class Toggle extends React.Component {
   static On = ({children}) => (
@@ -23,17 +26,19 @@ class Toggle extends React.Component {
       )}
     </ToggleContext.Consumer>
   )
-  state = {on: false}
+  // 💰 The reason we had to move `toggle` above `state` is because
+  // in our `state` initialization we're _using_ `this.toggle`. So
+  // if `this.toggle` is not defined before state is initialized, then
+  // `state.toggle` will be undefined.
   toggle = () =>
     this.setState(
       ({on}) => ({on: !on}),
       () => this.props.onToggle(this.state.on),
     )
+  state = {on: false, toggle: this.toggle}
   render() {
     return (
-      <ToggleContext.Provider
-        value={{on: this.state.on, toggle: this.toggle}}
-      >
+      <ToggleContext.Provider value={this.state}>
         {this.props.children}
       </ToggleContext.Provider>
     )

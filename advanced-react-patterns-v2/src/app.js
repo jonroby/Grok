@@ -13,23 +13,25 @@ const files = [
   '07',
   '08',
   '09',
+  '10-primer',
   '10',
   '11',
   '12',
+  '13',
 ]
 
 const pages = files.reduce((p, filename, index, fullArray) => {
+  // const previousFilename = fullArray[index - 1]
+  // const nextFilename = fullArray[index + 1]
   const final = require(`./exercises-final/${filename}`)
   Object.assign(final, {
     previous: fullArray[index - 1],
     next: fullArray[index + 1],
-    isolatedPath: `/isolated/exercises-final/${filename}`,
   })
   const exercise = require(`./exercises/${filename}`)
   Object.assign(exercise, {
     previous: fullArray[index - 1],
     next: fullArray[index + 1],
-    isolatedPath: `/isolated/exercises/${filename}`,
   })
   p[filename] = {
     exercise,
@@ -170,25 +172,16 @@ function NavigationFooter({exerciseId, type}) {
 function FullPage({type, match}) {
   const {exerciseId} = match.params
   const page = pages[exerciseId]
-  const {default: Usage, isolatedPath} = pages[exerciseId][type]
+  const Usage = pages[exerciseId][type].default
   return (
     <div>
-      <div
-        style={{
-          marginLeft: 10,
-          marginRight: 10,
-          marginTop: 10,
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div style={{marginLeft: 10}}>
         <Link to={`/${exerciseId}`}>
           <span role="img" aria-label="back">
             👈
           </span>
           Exercise Page
         </Link>
-        <Link to={isolatedPath}>isolated</Link>
       </div>
       <div style={{textAlign: 'center'}}>
         <h1>{page.title}</h1>
@@ -215,14 +208,12 @@ function FullPage({type, match}) {
 
 class Isolated extends React.Component {
   Component = loadable({
-    loader: () => {
-      const {moduleName} = this.props.match.params
-      return this.props.type === 'exercise'
-        ? import(`./exercises/${moduleName}`)
-        : this.props.type === 'final'
-          ? import(`./exercises-final/${moduleName}`)
-          : null
-    },
+    loader: () =>
+      this.props.type === 'exercise'
+        ? import(`./exercises/${this.props.match.params.moduleName}`)
+        : import(`./exercises-final/${
+            this.props.match.params.moduleName
+          }`),
     loading: () => <div>Loading...</div>,
   })
   render() {

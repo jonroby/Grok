@@ -1,5 +1,5 @@
 import React from 'react'
-import {renderToggle, fireEvent} from '../../test/utils'
+import {renderToggle, Simulate} from '../../test/utils'
 import Usage from '../exercises-final/08'
 // import Usage from '../exercises/08'
 
@@ -53,7 +53,7 @@ test('can click too much', () => {
     [false], // 6
   ])
 
-  fireEvent.click(getByText('Reset'))
+  Simulate.click(getByText('reset'))
   expect(handleReset).toHaveBeenCalledTimes(1)
   expect(handleReset).toHaveBeenCalledWith(false)
   expect(queryByTestId('notice')).toBeNull()

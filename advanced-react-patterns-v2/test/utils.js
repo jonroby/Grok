@@ -1,5 +1,4 @@
-import 'react-testing-library/cleanup-after-each'
-import {render, fireEvent, wait} from 'react-testing-library'
+import {render, Simulate, wait} from 'react-testing-library'
 import chalk from 'chalk'
 import React from 'react'
 import {
@@ -28,7 +27,7 @@ function validateSwitchInstance(switchInstance) {
     expect(switchInstance.props).toMatchObject({
       on: expect.any(Boolean),
       onClick: expect.any(Function),
-      // it can also have aria-pressed...
+      // it can also have aria-expanded...
     })
   } catch (error) {
     const helpfulMessage = chalk.red(
@@ -53,14 +52,13 @@ function renderToggle(ui) {
   const utils = render(<Root ref={rootRef}>{ui}</Root>)
   const switchInstance = findSwitchInstances(rootInstance)[0]
   validateSwitchInstance(switchInstance)
-  const toggleButton = utils.getByTestId('toggle-input')
-
+  const toggleButton = utils.getByLabelText('Toggle')
   return {
-    toggle: () => fireEvent.click(utils.getByTestId('toggle-input')),
+    toggle: () => Simulate.click(utils.getByLabelText('Toggle')),
     toggleButton,
     rootInstance,
     ...utils,
   }
 }
 
-export {render, fireEvent, wait, renderToggle}
+export {render, Simulate, wait, renderToggle}

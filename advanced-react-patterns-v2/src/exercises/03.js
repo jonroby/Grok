@@ -13,9 +13,6 @@ import {Switch} from '../switch'
 //
 // const defaultValue = 'light'
 // const ThemeContext = React.createContext(defaultValue)
-//   Note: The `defaultValue` can be an object, function, or anything.
-//   It's simply what React will use if the ThemeContext.Consumer is rendered
-//   outside a ThemeContext.Provider
 //
 // ...
 // <ThemeContext.Provider value={this.state}>
@@ -25,19 +22,9 @@ import {Switch} from '../switch'
 //
 // ...
 // <ThemeContext.Consumer>
-//   {contextValue => <div>The current theme is: {contextValue}</div>}
+//   {value => <div>The current theme is: {value}</div>}
 // </ThemeContext.Consumer>
 // ...
-//
-// NOTE: Spacing matters!! For example, these are not the same:
-// <Context.Consumer> {val => val} </Context.Consumer>
-// <Context.Consumer>{val => val}</Context.Consumer>
-//
-// To visualize the difference, here's what these would be with a named children prop:
-// <Context.Consumer children={[' ', {val => val}, ' ']} />
-// <Context.Consumer children={val => val} />
-// make sure that you don't have the extra space in there
-//   (newlines are ok, like in the above example)
 
 // 🐨 create a ToggleContext with React.createContext here
 
@@ -50,6 +37,10 @@ class Toggle extends React.Component {
   static Button = ({on, toggle, ...props}) => (
     <Switch on={on} onClick={toggle} {...props} />
   )
+  // Because we'll be passing state into context, we need to 🐨 add the
+  // toggle function to state.
+  // 💰 You'll need to move this below the `toggle` function. See
+  // if you can figure out why :)
   state = {on: false}
   toggle = () =>
     this.setState(
@@ -60,9 +51,8 @@ class Toggle extends React.Component {
     // Because this.props.children is _immediate_ children only, we need
     // to 🐨 remove this map function and render our context provider with
     // this.props.children as the children of the provider. Then we'll
-    // expose the `on` state and `toggle` method as properties in the context
+    // expose the on state and toggle method as properties in the context
     // value (the value prop).
-
     return React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
         on: this.state.on,
@@ -71,13 +61,6 @@ class Toggle extends React.Component {
     )
   }
 }
-
-// 💯 Extra credit: rather than having a default value, make it so the consumer
-// will throw an error if there's no context value to make sure people don't
-// attempt to render one of the compound components outside the Toggle.
-// 💯 Extra credit: avoid unecessary re-renders of the consumers by not
-// creating a new `value` object ever render and instead passing an object
-// which only changes when the state changes.
 
 // Don't make changes to the Usage component. It's here to show you how your
 // component is intended to be used and is used in the tests.

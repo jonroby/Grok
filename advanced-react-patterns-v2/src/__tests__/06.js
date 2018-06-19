@@ -1,5 +1,5 @@
 import React from 'react'
-import {renderToggle, fireEvent} from '../../test/utils'
+import {renderToggle, Simulate} from '../../test/utils'
 import Usage from '../exercises-final/06'
 // import Usage from '../exercises/06'
 
@@ -21,7 +21,7 @@ test('can also toggle with the custom button', () => {
     <Usage onButtonClick={() => {}} onToggle={handleToggle} />,
   )
   expect(toggleButton).toBeOff()
-  fireEvent.click(getByLabelText('custom-button'))
+  Simulate.click(getByLabelText('custom-button'))
   expect(toggleButton).toBeOn()
   expect(handleToggle).toHaveBeenCalledTimes(1)
   expect(handleToggle).toHaveBeenCalledWith(true)
@@ -39,7 +39,7 @@ test('passes custom props to the custom-button', () => {
   const customButton = getByLabelText('custom-button')
   expect(customButton.getAttribute('id')).toBe('custom-button-id')
 
-  fireEvent.click(customButton)
+  Simulate.click(customButton)
 
   expect(toggleButton).toBeOn()
   expect(handleCustomButtonClick).toHaveBeenCalledTimes(1)
