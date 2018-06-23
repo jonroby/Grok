@@ -26,7 +26,7 @@ class Toggle extends React.Component {
     }
   }
   render() {
-    return this.props.children(this.getStateAndHelpers())
+    return this.props.children(this.getStateAndHelpers());
   }
 }
 
