@@ -78,6 +78,8 @@ fun card_value (_, value) =
         |  Jack) => 10
      | Num n => n
 
+fun remove_card (cs, c, e) =
+    case cs of
+        [] => raise e
+     | x::xs => if x = c then xs else x :: remove_card(xs, c, e)
 
-
-(* fun card_value *)
