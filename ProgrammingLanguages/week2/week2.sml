@@ -70,6 +70,13 @@ fun card_color (suit, _) =
          (Clubs | Spades) => Black
        | (Diamonds | Hearts) => Red
 
+fun card_value (_, value) =
+    case value of
+        Ace => 11
+     |  (King 
+        |  Queen
+        |  Jack) => 10
+     | Num n => n
 
 
 
