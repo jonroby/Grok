@@ -90,4 +90,21 @@ fun all_same_color (cards: card list) =
       | head::neck::rest => if card_color(head) = card_color(neck)
                             then all_same_color(rest)
                             else false
-                                     
+
+fun sum_cards (cards: card list) =
+    let fun sum (cards, total) =
+            case cards of
+                [] => total
+              | x::xs => sum(xs, total + card_value(x))
+    in
+        sum (cards, 0)
+    end
+
+fun score (cards : card list, goal: int) =
+    let
+        val prelim =
+        if sum_cards(cards) > goal then (sum_cards(cards) - goal) * 3
+        else goal - sum_cards(cards)
+    in
+        if all_same_color(cards) then prelim div 2 else prelim
+    end
