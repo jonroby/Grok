@@ -1,0 +1,22 @@
+To generate a bitcoin address, take the SHA256 of the public key and then pass
+that to RIPEMD160:
+
+address = RIPEMD160(SHA256(public_key))
+
+Remember that a bitcoin address is not identical to a public key; they are
+derived from a public key.
+
+This address is then encoded as Base58Check.
+
+Base58Check has 58 symbols and includes everything that Base64 does, except for
+zero, capital 'O', lower 'l', capital 'I', '+' and '/'. This is to avoid
+transcription errors.
+
+To convert the address to Base58Check, first, determine the prefix. In this case,
+since the conversion is a bitcoin address, the prefix is 0x00. If it were a
+private key, it would be 0x80.
+
+Then double SHA the address and append the first four bytes to the address:
+prefix + address + checksum.
+
+Finally, Base58 encode this.
