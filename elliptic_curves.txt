@@ -1,0 +1,41 @@
+An elliptic curve is the set of solutions to an equation of the form
+    y^2 = x^3 + ax = b
+which is called a Weierstrauss equation.
+
+The particular equation that Bitcoin uses (provided by sekp256k1) is
+    y^2 = (x^3 + 7)
+over a finite field of prime order p where
+    p = 2^256 - 2^32 - 2^9 - 2^8 - 2^7 - 2^6 - 2^4 - 1
+
+What is p?
+
+This equation will not look like a curve, but rather, random points scattered
+symmetrically across the x-axis.
+
+To add two points p1 and p2 on an elliptic curve, draw the line between p1 and
+p2 and then find the point p3, where the line intersects with the curve. This is
+guaranteed to exist. Then reflect that point about the x-axis. So if p3 = (x,y)
+then its reflection p3' is (x,-y).
+
+There are two special cases that need to be considered. First, when adding a
+point to itself and second, when two points form a vertical line (have the same
+x coordinate.)
+
+To add a point to itself, take the tangent of p (by differentiation) and find
+where that line crosses and proceed as before.
+
+Adding two points that form a vertical line results in a point o, infinity. And
+if you add a point to o, the result is just the point. So with elliptic curves,
+infinity plays the role of 0 in traditional addition.
+
+Multiplication for elliptic curves:
+    x * y = y + y + y (x times)
+
+The elliptic curve discrete logarithm problem (ECDLP) is the problem of finding
+x when given Z and y:
+    Z = y + y + y (x times)
+
+So x = log(y)(Z)
+
+Finding Z is computationally easy, but finding x is computationally difficult;
+a "trap door function". 
