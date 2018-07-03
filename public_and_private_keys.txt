@@ -1,0 +1,22 @@
+A private key is a randomly picked number between 1 and ~2^256 (1.158 * 10^77).
+The SHA256 hash algorithm can generate this.
+
+The private key is then used to generate the public key using elliptic curve
+multiplication and a generator point specified by skp256k1.
+
+public_key = private_key * generator_point
+
+(The public_key is the resulting point on the graph.)
+
+Note that elliptic curve multiplication is different from standard
+multiplication. While the generator_point is added to itself private_key times,
+the "sum" is obtained by taking the line tangent to the generator_point on an
+elliptic curve, then finding where the line intersect the ec and then reflecting
+that point about the x-axis. To reiterate, this is done private_key times.
+
+The key idea is that it is computationally easy to derive the public key from
+the private key and generator point, but not the private key from the public key
+and generator point (finding the discrete logarithm). For more details, see
+elliptic_curves.txt.
+
+The elliptic curve, generator point, and public key are public.
