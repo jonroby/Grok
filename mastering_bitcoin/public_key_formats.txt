@@ -1,0 +1,19 @@
+Public keys can be either compressed or uncompressed.
+
+The public key is an x and y coordinate prefixed with a number, usually 04.
+02 and 03 are used for compressed public keys.
+
+Since it is possible to obtain the y coordinate if the x coordinate is given,
+only the latter need be kept. To obtain y solve
+    y^2 mod p = x^3 + 7 mod p
+
+This reduces the size of every transaction by nearly half.
+
+Notice that it would be impossible to determine if y were positive or negative
+just by solving the equation. So then, the sign of the number needs to be
+preserved: 02 if y is positive and 03 it is negative.
+
+Compressed public keys will yield different addresses than uncompressed ones.
+So wallet apps need to know if the private key was used to create compressed or
+uncompressed. WIFs, which are used to represent private keys, now signify which
+type the private keys were used to create.
