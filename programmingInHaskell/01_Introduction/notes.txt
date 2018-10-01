@@ -1,0 +1,22 @@
+Functional programming can be viewed as a style of programming in which
+the basic method of computation is the application of functions to
+arguments. In turn a functional programming language is one that supports
+or encourages the functional style.
+
+- Functions can be stored in data structures.
+- Taking functions as arguments
+- Producing functions as a results.
+- Functions defined in terms of themselves.
+
+Features of Haskell:
+- Concision
+- Powerful type sytem (general forms of polymorphism and overloading)
+- List comprehensions
+- Recursive functions (pattern matching and guards)
+- Higher-order functions (HOFs can be used to define domain specific
+  languages like list processing, interactive programming and parsing)
+- Effectful functions (using monads and applicatives)
+- Generic functions
+- Lazy evaluation
+- Equational reasoning
+
