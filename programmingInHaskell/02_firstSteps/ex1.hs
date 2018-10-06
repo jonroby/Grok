@@ -1,0 +1,1 @@
+-- 1. Work through examples from chapter using ghci.
