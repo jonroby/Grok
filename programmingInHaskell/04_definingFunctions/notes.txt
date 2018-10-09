@@ -1,0 +1,66 @@
+Guards check for truth.
+
+abs n | n >= 0 = n
+      | otherwise = -n
+
+Main benefit of guards over conditionals is that they are easier to read.
+
+Pattern matching is a sequence of syntactic expressions called patterns,
+which are used to choose between a sequence of results of the same type.
+
+not :: Bool -> Bool
+not False = True
+not True = False
+
+(&&) :: Bool -> Bool -> Bool
+True && True = True
+_ && _       = False
+
+The '_' is a wildcard pattern.
+
+Tuples
+fst :: (a,b) -> a
+fst (x,_) = x
+
+snd :: (a,b) -> b
+snd (_,y) = y
+
+Lists
+test :: [Char] -> Bool
+test ['a',_,_] = True
+test _ = False
+
+Lists like [1,2,3] are just an abbreviation for 1:(2:(3:[])) The cons
+operator can also be used to construct patterns, which match any non-empty
+list whose first and remaining elements match the corresponding patterns
+in order.
+
+head :: [a] -> a
+head (x:_) = x
+
+tail :: [a] -> a
+tail (_:xs) = xs
+
+The cons operator must be parenthesized because function application has
+higher priority than all other operators in the language. For example,
+the definition head x:_ = x without parentheses means (head x):_ = x, which
+is both the incorrect meaning and an invalid definition.
+
+Lambdas can be used to formalize the meaning of curried function definitions!
+
+add :: Int -> Int -> Int
+add x y = x + y
+
+add :: Int -> (Int -> Int)
+add = \x -> (\y -> x + y)
+
+Operator Sections
+Any operator can be converted into a curried function that is written before
+its arguments by enclosing the name of the operator in parentheses as in
+(+) 1 2. And to include an argument if desired (+1) 2.
+
+(#) = \x -> (\y -> x # y)
+(x #) = \y -> x # y
+(# y) = \x -> x # y
+
+Sections have three primary applications.
