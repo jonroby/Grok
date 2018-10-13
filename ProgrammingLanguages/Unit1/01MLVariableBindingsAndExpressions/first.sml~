@@ -1,9 +1,0 @@
-
-(* This is a comment. This is our first program. *)
-
-val x = 34;
-
-val y = 17;
-
-(* To run C-c C-s. Enter. use "first.sml"; *)
-(* C-x o to switch windows *)
