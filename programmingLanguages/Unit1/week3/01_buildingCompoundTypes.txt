@@ -1,0 +1,23 @@
+Three important type building-blocks in any language.
+- Each of: A t value contains each of t1, t2, ..., tn.
+- One of: A t value contains values of one of t1, t2, ..., tn.
+- Self reference: A t value can refer to other t values.
+
+Note: These are not the common names for these concepts.
+
+Tuples build each-of types
+- int * bool contains an int and a bool.
+
+Options build one-of types
+- int option contains an int or it contains not data.
+
+List use all three building blocks
+- int list contains an int and another int list or it contains no data.
+
+We can nest compound types
+- ((int * int) option * (int list list)) option
+
+Later in course: How OOP does one-of types
+- Key contrast with procedural and functional programming. Preview:
+OOP does them in a different way using subclasses and subtypes. In
+fact, it is the opposite way that ML does it!
