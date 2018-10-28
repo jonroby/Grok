@@ -1,0 +1,8 @@
+hFigure out why during lazy evaluation
+
+prime n = factors n == [1,n]
+
+doesn't have to produce all factors. It will return False as soon as some
+other factor is produced (prime 15 will stop when [1,3] happens). I thought
+that with lazy evaluation you apply the function and then evaluate left
+to right???
