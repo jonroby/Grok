@@ -1,0 +1,12 @@
+anonymous declaration fn x => x
+fun triple_n_times (n,x) =
+    n_times(fn x => 3*x,n,x)
+
+With anonymous functions you can't use recursion. This is because
+you aren't allowed to give them names (they are after all anonymous),
+and so there is no way to recursively call the function.
+
+val triple = fn y => 3 * y
+
+
+

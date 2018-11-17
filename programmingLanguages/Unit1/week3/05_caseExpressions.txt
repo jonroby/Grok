@@ -1,0 +1,27 @@
+ML combines the two aspects of accessing a one-of value with a
+case expression and pattern matching.
+- Pattern matching much general/powerful (coming soon!)
+
+Example:
+fun f x =
+  case x of
+      Pizza => 3
+    | TwoInts(i1, i2) => i1 + i2
+    | Str s => String.size s
+
+- A multi-branch conditional to pick branch based on variant.
+- Extracts data and binds to variables local to that branch
+- Type checking: all branches must have same type.
+- Evaluation: evaluate between case...of and the right branch.
+
+Why is this better?
+
+You cannot forget a case (inexhaustive pattern-match warning).
+You cannot duplicate a case (redundant case error).
+You will not forget to test the variant correctly and get an
+  exception (like hd []).
+Pattern-matching can be generalized and made more powerful, leading
+  to elegant and concise code. 
+
+
+

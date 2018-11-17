@@ -1,0 +1,37 @@
+#lang racket
+
+(require math/number-theory)
+
+(provide (all-defined-out)) ;; so we can put tests in a second file
+
+;; put your code below
+(define (sequence low high stride)
+  (if (> low high)
+      null
+      (cons low (sequence (+ low stride) high stride))))
+
+(define (string-append-map xs suffix)
+  (if (null? xs)
+      suffix
+      (cons (car xs) (string-append-map (cdr xs) suffix))))
+
+(define (list-nth-mod xs n)
+  (cond [(negative? n) (error "list-nth-mod: negative number")]
+        [(null? xs) (error "list-nth-mod: empty list")]
+        [#t (if (= n 0) (car xs) (list-nth-mod (cdr xs) (- n 1)))]))
+
+(define (stream-for-n-steps s n)
+  (if (= n 0)
+      (car (s))
+      (stream-for-n-steps (cdr (s)) (- n 1))))
+
+(define (f x) (cons x (lambda () (f (+ x 1)))))
+
+
+(define funny-number-stream
+  (let* ([div-by-five (lambda (x) (if (divides? 5 x) (- x) x))]
+        [f (lambda (x) (cons (div-by-five x) (lambda () (f (+ x 1)))))])
+    (lambda () (f 1))))
+
+(define ones (lambda () (cons 1 ones)))
+

@@ -1,0 +1,10 @@
+val x = {bar=(1+2, true andalso true), foo=3+4, baz=(false,9)}
+
+Records have a different type than anything we've seen:
+{bar: int * bool, baz: bool * int, foo: int}
+Type inference can figure this out.
+
+Tuples are a little shorter, but records a little easier to remember.
+The more items, choose a record (because it has naming).
+
+

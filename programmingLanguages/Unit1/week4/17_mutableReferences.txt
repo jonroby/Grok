@@ -1,0 +1,36 @@
+ML has (separate) mutation
+
+Mutable data structures are okay in some situations
+- When update to state of the world is appropriate model
+- But want most language constructs turly immutable
+
+ML does this with a separate construct: references
+
+Introducing now because will use them for next closure idiom
+
+Do not use references on your homework
+- You need to practice with mutation-free programming
+- They will lead to less elegant solutions
+
+
+
+The problem with most programming languages is that that they
+MAKE EVERYTHING MUTABLE. Even when it need not be!!! When the
+model of computation doesn't call for it.
+
+New types: t ref where t is a type
+
+New expressions:
+- ref e to create a refrence with inital contents e
+- e1 := e2 to update contents
+- !e to retrieve contents (not negation)
+
+val x = ref 42
+val y = ref 42
+val z = x
+val _ = x := 43
+val w = (!y) + (!z)
+x + 1 doesn't type check
+
+
+

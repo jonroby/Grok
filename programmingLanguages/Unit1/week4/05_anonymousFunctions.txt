@@ -1,0 +1,16 @@
+fn n_times (fn,n,x) =
+  if n = 0
+  then x
+  else f (n_times(f,n-1,x))
+
+fn nth_tailBad (n,xs) = n_times((fn y => tl y),n,xs)
+fun nth_tailGood (n,xs) = n_times(tl,n,xs)
+
+fun revBad1 xs = List.rev xs
+val revBad2 = fn xs => List.rev xs
+val revGood = List.rev
+
+Compare
+if x then true else false
+Could just do x
+

@@ -1,0 +1,17 @@
+Standard libraries have
+- Things you could not implement on your own
+  - Opening a file, setting a timer
+- Things so common a standard definition is appropriate.
+  - Examples: List.map, string concatenation
+
+You should get comfortable seeking out documentation and gaining
+intuition on where to look.
+
+http://www.standardml.org/Basis/manpages.html
+
+Homework 3: Use STRING, Char, List, and ListPair
+
+To use a binding: StructureName.functionName
+- Examples: List.map, String.isSubstring
+
+

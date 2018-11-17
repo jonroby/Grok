@@ -1,0 +1,19 @@
+The key point
+
+Higher order functions are often so generic and reusable that they
+have polymorphic types, types with type variables.
+
+But there are higher-order functions that are not polymorphic.
+
+And there are non-higher-order (first-order) functions that are
+polymorphic.
+
+Always a good idea to understand the type of a function, especially
+a higher-order function.
+
+fun n_times (f,n,x) =
+  if n=0
+  then x
+  else f (n_times(f,n-1,x))
+
+

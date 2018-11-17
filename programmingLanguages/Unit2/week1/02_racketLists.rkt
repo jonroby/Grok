@@ -1,3 +1,5 @@
+#lang racket
+
 ;; empty list: null
 ;; cons constructor: cons
 ;; access head of list: car
@@ -12,21 +14,17 @@
 (define (sum xs)
   (if (null? xs)
       0
-      (+ (car xs) (sum (cdr xs)))))
+      (+ (car xs) (sum(cdr xs)))))
 
 (define (my-append xs ys)
   (if (null? xs)
       ys
       (cons (car xs) (my-append (cdr xs) ys))))
 
-;; (define (my-map f xs)
-;;   (cons  (f (car xs) (my-map f (cdr xs))))
-
-(define (my-map f xs)
-  (if (null? xs)
+(define (my-map fn lst)
+  (if (null? lst)
       null
-      (cons (f (car xs))
-               (my-map f (cdr xs)))))
+      (cons (fn (car lst)) (my-map fn (cdr lst)))))
 
 ;; note (cons 4 (cons 5 (cons 6 null))) is the same as
 ;; '(4 5 6)

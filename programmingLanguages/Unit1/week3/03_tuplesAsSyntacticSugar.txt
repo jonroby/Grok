@@ -1,0 +1,26 @@
+val a_pair = (4,6);
+
+val another_pair = {2=5, 1=6};
+This will evalute: (6,5) : int * int
+
+There are no such things as tuples in ML.
+
+- Tuple syntax is just a different way to write certain records.
+- (e1,...,en) is another way of writing {1:t1,...,n:tn}
+- t1 * .. * tn is another way of writing {1:t1, ..., n:tn}
+
+This is how ML defines tuples.
+- Other than special syntax in programs and printing, they don't
+exist.
+
+Tuples are syntactic sugar for records with fields named 1,2,...n.
+Syntactic: Can describe the semantics entirely be the corresponding
+record syntax.
+Sugar: They make the language sweeter.
+
+They simplify understanding of language.
+They simplify implementing the language.
+Because they're are fewer semantics to worry about.
+
+Another example we saw: andalso and orelse vs if then else.
+

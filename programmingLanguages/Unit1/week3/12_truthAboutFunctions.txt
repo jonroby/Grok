@@ -1,0 +1,72 @@
+Learn some deep truths about what is really going on
+- Using much more syntactic sugar than we realized.
+
+Every val binding and function binding uses pattern matching!!!
+
+Every function in ML takes exactly one argument.
+
+First we need to extend our definition of pattern matching.
+
+So far we have used pattern matching for one of types because
+we needed a way to access the values.
+
+Pattern matching also works for records and tuples:
+- The pattern (x1,...,xn) matches the tuple value (v1,...,vn)
+- The pattern {f1=x1,...,fn=xn} matches the record value
+  {f1=v1,...,fn=vn} (and fields can be reordered)
+
+Poor style, but works:
+fun sum_triple triple =
+  case triple of
+    (x,y,z) => x + y + z
+
+fun full_name r =
+  case r of
+    {first=x, middle=y, last=z} =>
+      x ^ " " ^ y ^ " " ^ z
+
+New feature: A val-binding can use a pattern not just a variable.
+Turns out variables are just one kind of pattern, so we just told
+you a half truth in lecture 1.
+
+  val p = e
+
+Great for getting all pieces out of an each of type
+  - Can also get only parts out (not shown here)
+
+Usually poor style to put a constructor pattern in a val binding
+- Tests for the one variant and raises an exception if a
+  different one is there (like hd, tl, and valOf)
+
+ACTUALLY a function argument can also be a pattern. Match against
+the argument in a function call.
+
+fun sum_triple (x,y,z) =
+  x + y + z
+
+fun full_name {first=x, middle=y, last=z} =
+  x ^ " " ^ y ^ " " ^ z
+
+EVERY FUNCTION IN ML TAKES ONE ARGUMENT!!!
+
+What we call multi-argument functions are just functions taking
+one tuple argument, implemented with a tuple pattern in the
+function binding
+- Elegant and flexible language design.
+
+Enables cute and useful things you cannot do in Java, e.g.
+fun rotate_left (x,y,z) = (y,z,x)
+
+Why not ???: 
+function rotateLeft(x,y,z) {
+  return (y,x,z)
+}
+
+Zero arguments is the unit pattern () matching the unit value ().
+
+For homework2:
+- Do not use the # character
+- Do not need to write down any explicit types.
+
+
+

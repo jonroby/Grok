@@ -1,0 +1,11 @@
+The function body is evaluted in the environment where the
+function was defined (Created)
+- Extended with the function argument
+
+Nothing changes to this rule when we take and return functions
+- But the environment may involve nested let-expressions,
+  not just the top level sequence of bindings
+
+Makes first-class functions much more powerful
+- Even if may seem counterintuitive at first.
+

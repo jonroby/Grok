@@ -1,0 +1,9 @@
+For hmwk 2:
+- Do not use # character
+- Do not need to write down any explicit types.
+
+These are related:
+- Type checker can use patterns to figure out the types.
+- With just #foo and #1 it cannot determine "what other fields"
+
+

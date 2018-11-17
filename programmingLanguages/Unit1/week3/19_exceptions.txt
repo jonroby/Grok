@@ -1,0 +1,37 @@
+fun hd xs =
+  case xs of
+      []   => raise List.empty
+    | x::_ => x
+
+exception MyUndesirableCondition
+exception MyOtherException of int * int
+
+fun mydiv (x,y) =
+  if y = 0
+  then raise MyUndesirableCondition
+  else x div y
+
+val z = maxList([], MyUndesirableCondition)
+        handle MyUndesirableCondition => 42
+
+An exception binding introduces a new kind of exception.
+
+exception MyFirstException
+exception MySecondException of int * int
+
+The raise primitive raises (throws) an exception
+  raise MyFirstException
+  raise (MySecondException(7,9))
+
+A handle expression can handle an exception
+- If doesn't match, exception continues to propagate
+  e1 handle MyFirstException => e2
+  e1 handle MySecondException(x,y) => e2
+
+Exceptions are like datatype constructors.
+
+Declaring an exception adds a constructor for type exn.
+
+Can pass values of exn anywhere.
+
+Handle can have multiple branches with patterns for type exn.

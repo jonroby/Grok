@@ -1,0 +1,21 @@
+fun double_or_trip f =
+  if f 7
+  then fn x => 2 * x
+  else fn x => 3 * x
+
+t1 -> t2 -> t3 -> t4 (Arrows are right associative)
+
+Higher order functions are not just for numbers and lists
+
+They work great for common recursive traversals over your own
+data structures (datatype bindings) too
+
+Example of a higherorder predicate:
+
+Are all constants in an arithemtic expression even numbers.
+
+Use a more general function fn type
+
+And call i with fn x = x mod 2 = 0
+
+

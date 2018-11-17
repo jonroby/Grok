@@ -1,0 +1,28 @@
+Claimed built in options and lists are not needed or special.
+- Other than special syntax for list constructors.
+
+But these datatype bindings are polymorphic type constructors.
+- int list and string list and int list list are all types not list
+- Functions might or might not be polymorphic
+  - val sum_list : int list -> int
+  - val append : 'a list * 'a list -> 'a list
+
+Good language design: Can define new polymorphic datatypes.
+
+Semi-optional: Do not need to understand this for homework 2.
+
+datatype 'a option = NONE | SOME of 'a
+
+datatype 'a mylist = Empty | Cons of 'a * 'a mylist
+
+datatype ('a, 'b) tree =
+    Node of 'a * ('a,'b) tree * ('a, 'b) tree
+  | Leaf of 'b
+
+Can use these type variables in constructor definitions.
+
+Binding then introduces a type constructor not a type
+- Must say int mylist or string mylist of 'a mylist
+- Not "plain" mylist
+
+

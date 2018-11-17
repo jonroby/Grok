@@ -1,0 +1,7 @@
+Put this at the top of file:
+#lang racket
+
+Then M-x racket-run! And that's it!
+
+To use previous commands:
+M-p

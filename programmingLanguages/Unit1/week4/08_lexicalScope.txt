@@ -1,0 +1,45 @@
+We know function bodies can use any bindings in scope.
+
+But now that functions can be passed around: In scope where?
+
+Where the function was defined (not where it was called)
+
+This semantics is called lexical scope.
+
+There are lots of good reasons for this semantics (why)
+- Discussed after explaining what the semantics is (what)
+- Later in the course: implementing it (how)
+
+Must get this for homework, exams, and competent programming.
+
+val x = 1 (x maps to 1)
+
+fun f y = x + y (f maps to a function that adds 1 to its arg)
+
+val x = 2 (x maps to 2; no effect on f)
+
+val y = 3 (y maps to 3)
+
+val z = f (x + y) (call the function defined with line 2 with 5)
+
+z returns 6, because x on line 23 is 2 and y is 3 so 2 + 3 is 5.
+Then it is passed to f as the parameter y and 1 + 5 is 6. Remember
+that x was mapped to 1 earlier.
+
+
+
+How can functions be evaluated in old environments that aren't
+around anymore.
+- The language implementation keeps them around as necessary.
+
+Can define the semantics of functions as follows:
+- A function value has two parts
+  - The code (obviously)
+  - The environment that was current when the function was
+    defined.
+- This is a pair but unlike ML pairs, you cannot access the
+  pieces.
+- All you can do is call this "pair"
+- This pair is called a function closure.
+- A call evaluates the code part in the environment part
+  extended with the function argument.

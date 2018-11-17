@@ -1,0 +1,16 @@
+Callbacks
+
+A common idiom: library takes function to apply later, when an
+event occurs -- examples:
+  - When a key is pressed, mouse moves, data arrives
+  - When the program enters some state (turns in a game)
+
+A library may accept multiple callbacks
+- Different callbacks may need different private data with
+  different types.
+- Fortunately, a function's type does not include the types of
+  bindings in the environment
+- In OOP objects and private fields are used similarly, e.g.,
+  Java Swing's event listeners.
+
+

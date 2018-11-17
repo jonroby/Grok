@@ -1,0 +1,58 @@
+How to reason about efficiency
+The importance of tail recursion
+Using an accumulator to achieve tail recursion
+And to use common idioms to use tail recursion.
+
+When a program runs, there is a call stack of function calls that
+have started but not yet returned
+- Calling a function f pushes an instance of f on the stack
+- When a call to f finishes, it is popped from the stack.
+
+These stack frames store information like the value of local
+variables and "what is left to do" in the function.
+
+Due to recursion, multiple stack-frames may be calls to the same
+function.
+
+factorial is an example.
+
+fact 3   fact 3 : 3 * _   fact 3 : 3 * _   fact 3 : 3 * _
+         fact 2           fact 2 : 2 * _   fact 2 : 2 * _
+	                  fact 1           fact 1 : 1 * _
+			                   fact 0
+
+fact 3 : 3 * _   fact 3 : 3 * _   fact 3 : 3 * _   fact 3 : 3 * 2
+fact 2 : 2 * _   fact 2 : 2 * _   fact 2 : 2 * 1
+fact 1 : 1 * _   fact 1 : 1 * 1
+fact 0 : 1
+
+
+
+fun fact n =
+  let fun aux (n,acc) =
+    if n = 0
+    then acc
+    else aux (n-1,acc*n)
+  in
+    aux(n,1)
+  end
+
+val x = fact 3
+
+
+
+There is an optimization in functional languages! It is unnecessary
+to keep around a stack-frame just so it can get a callee's result
+and return it without any further evaluation.
+
+ML recognizes these tail calls in the compiler and treats them
+differently:
+- Pop the caller before the call, allowing call to reuse the
+  same stack space.
+- (Along with other optimizations) as efficient as loop.
+
+Reasonable to assume all functional language implementations do
+tail call optimization.
+
+fact 3   aux (3,1)  aux (2,3)  aux (1,6)  aux (0,6)
+

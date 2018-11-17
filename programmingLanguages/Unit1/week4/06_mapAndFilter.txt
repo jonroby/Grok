@@ -1,0 +1,23 @@
+fun map (f,xs) =
+  case xs of
+      []      => []
+    | x::xs => (fn x)::map(f,xs)
+
+val x1 = map((fn x => x + 1), [4,5,6,7])
+
+val map : ('a -> 'b) * 'a list -> 'b list
+
+'a and 'b can be the same. But they need not be.
+
+Predefined library map uses currying.
+
+fun filter (f,xs) =
+  case xs of
+      []    => []
+    | x::xs => if f x
+               then x::filter(f,xs)
+	       else filter(f,xs)
+
+val filter : ('a -> bool) * 'a list -> 'a list
+
+Similar to map and List.map, List.filter uses currying.

@@ -1,0 +1,52 @@
+Lexical scope: use environment where function is defined
+Dynamic scope: use environment where function is called
+
+Decades ago, both might have been considered reasonable, but now
+we know lexical scope makes much more sense
+
+Here are three prcise technical reasons
+- Not a matter of opinion
+
+1 Function meaning does not depend on variable names used
+
+func dem =
+  let x = 1
+  in
+  x + 1
+Intuitively this answer should always be 2 wherever it's called.
+But if dynamic scope:
+
+val x = 2
+dem
+
+The answer is 3. Or whatever value x was set to.
+
+Also if you tried to refactor dem (changing the name of x to q),
+code that previously worked in the second example would now
+return 1, which a programmer may not expect.
+
+THIS IS CRUCIAL FOR MODULARITY!
+
+2 Functions can be type-checked and reasoned about where defined.
+
+3 Closures an easily store the data they need.
+
+Being able to pass closures that have free variables (private
+data) makes higher order functions much much more useful.
+
+
+
+Does dynamic scope exist?
+Lexical scope for variables is definitely the right default.
+- Very common across languages.
+
+Dynamic scope is occasionally convenient in some situations.
+- So some languages (e.g., Racket) have special ways to do it.
+- But most do not bother.
+
+If you squint some, exception handling is more like dynamic scope.
+- raise e transfers control to the current innermost handler.
+- Does not have to be syntactically inside a handle expression
+  (and usually is not)
+
+

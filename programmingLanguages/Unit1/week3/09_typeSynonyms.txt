@@ -1,0 +1,20 @@
+Type synonyms
+
+A type synonym is a new kind of binding
+  type aname = t
+
+They are interchangeable in every way.
+
+So could use
+  type card = suit * rank
+
+type name_record = { student_num : int option
+     		     first	 : string,
+		     middle      : string option,
+		     last	 : string }
+
+fun is_Queen_of_Spaces (c : card) =
+  #1 c = Spade andalso #2 c = Queen
+
+
+
